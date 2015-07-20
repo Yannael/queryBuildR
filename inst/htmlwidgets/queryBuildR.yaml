@@ -1,0 +1,25 @@
+# (uncomment to add a dependency)
+dependencies:
+  - name: bootstrap
+    version: 3.3.1
+    src: "htmlwidgets/lib/bootstrap"
+    script: bootstrap.min.js
+    stylesheet: bootstrap.css
+  - name: glyphicons
+    version: 3.3.1
+    src: "htmlwidgets/lib/glyphicons"
+    stylesheet: bootstrap-glyphicons.css
+  - name: jquery
+    version: 2.1.4
+    src: "htmlwidgets/lib/jQuery"
+    script: jquery.min.js
+  - name: jquerybuilder
+    version: 2.2.0
+    src: "htmlwidgets/lib/jQuery-QueryBuilder"
+    script: query-builder.standalone.js
+    stylesheet: query-builder.default.min.css
+  - name: sqlparser
+    version: 1.0.0
+    src: "htmlwidgets/lib/sql-parser"
+    script: sql-parser.js
+
