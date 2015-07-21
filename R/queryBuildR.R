@@ -1,12 +1,3 @@
-#' <Add Title>
-#'
-#' <Add Description>
-#'
-#' @import htmlwidgets
-#'
-#' @export
-#'
-
 library(htmlwidgets)
 
 idToName <- function(x) {
@@ -15,6 +6,31 @@ idToName <- function(x) {
         sep="", collapse=" ")
 }
 
+nameToId <- function(x) {
+  s <- strsplit(x, "_")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2),
+        sep="", collapse=" ")
+}
+
+#' Returns a template for the Query Builder filter on the basis of a Data Frame
+#'
+#' @param data Data Frame from which the list of filters will be created.
+#'
+#' @import htmlwidgets
+#'
+#' @examples
+#' #### Iris data example.
+#' # Load data
+#' data(iris)
+#' # Rename columns and get filters
+#' colnames(iris)<-c("sepal_length","sepal_width","petal_length","petal_width","species")
+#' filters<-getFiltersFromTable(iris)
+#' # Set initial rules to NULL
+#' rules<-NULL
+#' # Create Query Builder widget
+#' queryBuildR(rules,filters)
+#' @export
+#'
 getFiltersFromTable<-function(data) {
   filters<-list()
 
@@ -28,16 +44,16 @@ getFiltersFromTable<-function(data) {
              character={
                if (length(unique(data[,i]))>50) {
                  list(
-                   id= tolower(gsub(" ","",namesCol[i])),
+                   id= namesCol[i],
                    label= niceNames[i],
                    type= 'string',
                    default_value=data[1,i],
-                   operators=list('equal','not_equal','contains', 'is_empty', 'is_not_empty'))
+                   operators=list('equal','not_equal','contains', 'begins_with', 'ends_with', 'is_empty', 'is_not_empty'))
                }
                else {
                  values<-setdiff(unique(data[,i]),"")
                  list(
-                   id= tolower(gsub(" ","",namesCol[i])),
+                   id= namesCol[i],
                    label= niceNames[i],
                    type= 'string',
                    input='select',
@@ -46,14 +62,25 @@ getFiltersFromTable<-function(data) {
                    operators=list('equal','not_equal','contains', 'is_empty', 'is_not_empty'))
                }
              },
+             factor={
+               values<-setdiff(levels(data[,i]),"")
+               list(
+                 id= namesCol[i],
+                 label= niceNames[i],
+                 type= 'string',
+                 input='select',
+                 values=values,
+                 default_value=values[1],
+                 operators=list('equal','not_equal','contains', 'is_empty', 'is_not_empty'))
+             },
              integer=list(
-               id= tolower(gsub(" ","",namesCol[i])),
+               id= namesCol[i],
                label= niceNames[i],
                type= 'integer',
                default_value=0,
-               operators=list('equal','not_equal',  'less', 'less_or_equal', 'greater','greater_or_equal','between')),
+               operators=list('equal','not_equal','less', 'less_or_equal', 'greater','greater_or_equal','between')),
              numeric=list(
-               id= tolower(gsub(" ","",namesCol[i])),
+               id= namesCol[i],
                label= niceNames[i],
                type= 'double',
                default_value=0,
@@ -68,7 +95,27 @@ getFiltersFromTable<-function(data) {
   filters
 }
 
-
+#' Create a Query Builder widget
+#'
+#' @param rules List initializing the set of rules for the Query Builder widget.
+#' @param filters List specifying the variables, conditions and value ranges for building the queries.
+#'
+#' @import htmlwidgets
+#'
+#' @examples
+#' #### Iris data example.
+#' # Load data
+#' data(iris)
+#' # Rename columns and get filters
+#' colnames(iris)<-c("sepal_length","sepal_width","petal_length","petal_width","species")
+#' filters<-getFiltersFromTable(iris)
+#' # Set initial rules to NULL
+#' rules<-NULL
+#' # Create Query Builder widget
+#' queryBuildR(rules,filters)
+#'
+#' @export
+#'
 queryBuildR <- function(rules,filters, width = NULL, height = NULL) {
 
   x = list(
@@ -86,15 +133,11 @@ queryBuildR <- function(rules,filters, width = NULL, height = NULL) {
   )
 }
 
-#' Widget output function for use in Shiny
-#'
 #' @export
 queryBuildROutput <- function(outputId, width = '100%', height = '400px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'queryBuildR', width, height, package = 'queryBuildR')
 }
 
-#' Widget render function for use in Shiny
-#'
 #' @export
 renderQueryBuildR <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
