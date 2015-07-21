@@ -1,6 +1,6 @@
 # queryBuildR
 
-This package provides a function `queryBuildR` to create complex SQL query with [JQuery Query Builder](https://github.com/mistic100/jQuery-QueryBuilder).
+This package provides a function `queryBuildR` to create complex SQL query with [JQuery Query Builder](http://mistic100.github.io/jQuery-QueryBuilder).
 
 ## Install
 
