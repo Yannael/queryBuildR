@@ -1,14 +1,10 @@
 # (uncomment to add a dependency)
 dependencies:
+#NB bootstrap.css so url points to fonts directory without '..'
   - name: bootstrap
     version: 3.3.1
     src: "htmlwidgets/lib/bootstrap"
-    script: bootstrap.min.js
-    stylesheet: bootstrap.css
-  - name: glyphicons
-    version: 3.3.1
-    src: "htmlwidgets/lib/glyphicons"
-    stylesheet: bootstrap-glyphicons.css
+    stylesheet: bootstrap.min.css
   - name: jquery
     version: 2.1.4
     src: "htmlwidgets/lib/jQuery"
@@ -16,7 +12,7 @@ dependencies:
   - name: jquerybuilder
     version: 2.2.0
     src: "htmlwidgets/lib/jQuery-QueryBuilder"
-    script: query-builder.standalone.js
+    script: query-builder.standalone.min.js
     stylesheet: query-builder.default.min.css
   - name: sqlparser
     version: 1.0.0
