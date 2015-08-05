@@ -41,27 +41,12 @@ getFiltersFromTable<-function(data) {
 
     filterCol<-
       switch(class(data[,i]),
-             character={
-               if (length(unique(data[,i]))>50) {
-                 list(
+             character=list(
                    id= namesCol[i],
                    label= niceNames[i],
                    type= 'string',
                    default_value=data[1,i],
-                   operators=list('equal','not_equal','contains', 'begins_with', 'ends_with', 'is_empty', 'is_not_empty'))
-               }
-               else {
-                 values<-setdiff(unique(data[,i]),"")
-                 list(
-                   id= namesCol[i],
-                   label= niceNames[i],
-                   type= 'string',
-                   input='select',
-                   values=values,
-                   default_value=values[1],
-                   operators=list('equal','not_equal','contains', 'is_empty', 'is_not_empty'))
-               }
-             },
+                   operators=list('equal','not_equal','contains', 'begins_with', 'ends_with', 'is_empty', 'is_not_empty')),
              factor={
                values<-setdiff(levels(data[,i]),"")
                list(
@@ -77,19 +62,19 @@ getFiltersFromTable<-function(data) {
                id= namesCol[i],
                label= niceNames[i],
                type= 'integer',
-               default_value=0,
-               operators=list('equal','not_equal','less', 'less_or_equal', 'greater','greater_or_equal','between')),
+               default_value=data[1,i],
+               operators=list('equal','not_equal','less', 'less_or_equal', 'greater','greater_or_equal','between','is_empty', 'is_not_empty')),
              numeric=list(
                id= namesCol[i],
                label= niceNames[i],
                type= 'double',
-               default_value=0,
-               validation=list(
-                 min= 0,
-                 step= 0.01
-               ),
-               operators=list('equal','not_equal',  'less', 'less_or_equal', 'greater','greater_or_equal','between'))
-      )
+               default_value=data[1,i],
+#                validation=list(
+#                  min= 0,
+#                  step= 0.01
+#                ),
+               operators=list('equal','not_equal',  'less', 'less_or_equal', 'greater','greater_or_equal','between','is_empty', 'is_not_empty'))
+             )
     filters<-c(filters,list(filterCol))
   }
   filters
