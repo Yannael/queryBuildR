@@ -1,11 +1,15 @@
 library(htmlwidgets)
 
+#' @export
+#'
 idToName <- function(x) {
   s <- strsplit(x, "_")[[1]]
   paste(toupper(substring(s, 1,1)), substring(s, 2),
         sep="", collapse=" ")
 }
 
+#' @export
+#'
 nameToId <- function(x) {
   s <- strsplit(x, "_")[[1]]
   paste(toupper(substring(s, 1,1)), substring(s, 2),
