@@ -10,9 +10,9 @@ HTMLWidgets.widget({
 
   renderValue: function(el, x, instance) {
 
-  //  var changeInput = function(id, data) {
-  //      Shiny.onInputChange(el.id + '_' + id, data);
-  //  };
+    var changeInput = function(id, data) {
+        Shiny.onInputChange(el.id + '_' + id, data);
+    };
 
     var $el = $(el);
     $el.queryBuilder({
@@ -21,8 +21,7 @@ HTMLWidgets.widget({
       allow_empty:'true'
     });
 
-  //  changeInput('rules',$el.queryBuilder('getRules'))
-  //  changeInput('sqlQuery',$el.queryBuilder('getSQL', false))
+    //changeInput('sqlQuery',$el.queryBuilder('getSQL', false))
   },
 
   resize: function(el, width, height, instance) {

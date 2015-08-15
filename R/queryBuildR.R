@@ -4,16 +4,14 @@ library(htmlwidgets)
 #'
 idToName <- function(x) {
   s <- strsplit(x, "_")[[1]]
-  paste(toupper(substring(s, 1,1)), substring(s, 2),
-        sep="", collapse=" ")
+  paste(s, sep="", collapse=" ")
 }
 
 #' @export
 #'
 nameToId <- function(x) {
-  s <- strsplit(x, "_")[[1]]
-  paste(toupper(substring(s, 1,1)), substring(s, 2),
-        sep="", collapse=" ")
+  s <- strsplit(x, " ")[[1]]
+  paste(s, sep="", collapse="_")
 }
 
 #' Returns a template for the Query Builder filter on the basis of a Data Frame
@@ -50,7 +48,7 @@ getFiltersFromTable<-function(data) {
                    label= niceNames[i],
                    type= 'string',
                    default_value=data[1,i],
-                   operators=list('equal','not_equal','contains', 'begins_with', 'ends_with', 'is_empty', 'is_not_empty')),
+                   operators=list('equal','not_equal','contains', 'in', 'not_in','begins_with', 'ends_with','is_null', 'is_not_null')),
              factor={
                values<-setdiff(levels(data[,i]),"")
                list(
@@ -60,14 +58,14 @@ getFiltersFromTable<-function(data) {
                  input='select',
                  values=values,
                  default_value=values[1],
-                 operators=list('equal','not_equal','contains', 'is_empty', 'is_not_empty'))
+                 operators=list('equal','not_equal','contains', 'in', 'not_in','is_null', 'is_not_null'))
              },
              integer=list(
                id= namesCol[i],
                label= niceNames[i],
                type= 'integer',
                default_value=data[1,i],
-               operators=list('equal','not_equal','less', 'less_or_equal', 'greater','greater_or_equal','between','is_empty', 'is_not_empty')),
+               operators=list('equal','not_equal','less', 'less_or_equal', 'greater','greater_or_equal','between','in', 'not_in','is_null', 'is_not_null')),
              numeric=list(
                id= namesCol[i],
                label= niceNames[i],
@@ -77,7 +75,7 @@ getFiltersFromTable<-function(data) {
 #                  min= 0,
 #                  step= 0.01
 #                ),
-               operators=list('equal','not_equal',  'less', 'less_or_equal', 'greater','greater_or_equal','between','is_empty', 'is_not_empty'))
+               operators=list('equal','not_equal',  'less', 'less_or_equal', 'greater','greater_or_equal','between','is_null', 'is_not_null'))
              )
     filters<-c(filters,list(filterCol))
   }
