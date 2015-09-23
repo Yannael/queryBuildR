@@ -1,10 +1,11 @@
 # (uncomment to add a dependency)
 dependencies:
 #NB bootstrap.css so url points to fonts directory without '..'
-#  - name: bootstrap
-#    version: 3.3.5
-#    src: "htmlwidgets/lib/bootstrap"
-#    stylesheet: bootstrap.min.css
+  - name: bootstrap
+    version: 3.3.5
+    src: "htmlwidgets/lib/bootstrap"
+    stylesheet: bootstrap.min.css
+    script: bootstrap.min.js
   - name: jquery
     version: 2.1.4
     src: "htmlwidgets/lib/jQuery"
