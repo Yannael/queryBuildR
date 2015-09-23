@@ -26,6 +26,10 @@ queryBuildR(rules,filters)
 
 ## Shiny
 
-See example at https://github.com/Yannael/shinyQueryBuildR
+Example of integration with Shiny: https://github.com/Yannael/shinyQueryBuildR
+
+Online examples at:
+* http://yleborgne.net/shinyQueryBuildRDemo
+* http://yleborgne.net/opented
 
 
