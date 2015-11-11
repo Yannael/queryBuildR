@@ -28,6 +28,8 @@ queryBuildR(rules,filters)
 
 Example of integration with Shiny: https://github.com/Yannael/shinyQueryBuildR
 
+See also http://mlg.ulb.ac.be/node/796 for integrating with DT, SQLite and Shiny.
+
 Online examples at:
 * http://yleborgne.net/shinyQueryBuildRDemo
 * http://yleborgne.net/opented
