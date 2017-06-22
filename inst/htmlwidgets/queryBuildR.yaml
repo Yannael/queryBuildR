@@ -1,26 +1,24 @@
-# (uncomment to add a dependency)
 dependencies:
-#NB bootstrap.css so url points to fonts directory without '..'
   - name: bootstrap
-    version: 3.3.5
+    version: 3.3.7
     src: "htmlwidgets/lib/bootstrap"
-    stylesheet: bootstrap.min.css
-    script: bootstrap.min.js
+    stylesheet: css/bootstrap.min.css
+    script: js/bootstrap.min.js
   - name: jquery
-    version: 2.1.4
+    version: 3.2.1
     src: "htmlwidgets/lib/jQuery"
     script: jquery.min.js
   - name: jquerybuilder
-    version: 2.2.0
+    version: 2.4.3
     src: "htmlwidgets/lib/jQuery-QueryBuilder"
-    script: query-builder.standalone.min.js
-    stylesheet: query-builder.default.min.css
+    script: dist/js/query-builder.standalone.min.js
+    stylesheet: dist/css/query-builder.default.min.css
   - name: sqlparser
     version: 1.0.0
     src: "htmlwidgets/lib/sql-parser"
     script: sql-parser.js
   - name: moment
-    version: 2.10.6
+    version: 2.18.1
     src: "htmlwidgets/lib/moment"
     script: moment-with-locales.min.js
 
