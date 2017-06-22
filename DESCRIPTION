@@ -6,3 +6,4 @@ Description: What the package does (one paragraph)
 Depends: R (>= 3.1.0)
 License: GPL
 LazyData: true
+RoxygenNote: 6.0.1
