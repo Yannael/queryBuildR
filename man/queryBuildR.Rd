@@ -18,8 +18,6 @@ Create a Query Builder widget
 #### Iris data example.
 # Load data
 data(iris)
-# Rename columns and get filters
-colnames(iris)<-c("sepal_length","sepal_width","petal_length","petal_width","species")
 filters<-getFiltersFromTable(iris)
 # Set initial rules to NULL
 rules<-NULL

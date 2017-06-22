@@ -8,6 +8,16 @@ dependencies:
     src: "htmlwidgets/lib/bootstrap"
     stylesheet: css/bootstrap.min.css
     script: js/bootstrap.min.js
+  - name: bootstrap-select
+    version: 1.12.2
+    src: "htmlwidgets/lib/bootstrap-select"
+    stylesheet: dist/css/bootstrap-select.min.css
+    script: dist/js/bootstrap-select.min.js
+  - name: selectize
+    version: 0.12.4
+    src: "htmlwidgets/lib/selectize"
+    stylesheet: dist/css/selectize.css
+    script: dist/js/standalone/selectize.min.js
   - name: jquerybuilder
     version: 2.4.3
     src: "htmlwidgets/lib/jQuery-QueryBuilder"

@@ -16,12 +16,12 @@ HTMLWidgets.widget({
 
     var $el = $(el);
     $el.queryBuilder({
+      sortable: true,
       filters:x.filters,
       rules: x.rules,
-      allow_empty:'true'
+      allow_empty: true
     });
 
-    //changeInput('sqlQuery',$el.queryBuilder('getSQL', false))
   },
 
   resize: function(el, width, height, instance) {

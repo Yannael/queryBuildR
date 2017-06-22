@@ -1,19 +1,3 @@
-library(htmlwidgets)
-
-#' @export
-#'
-idToName <- function(x) {
-  s <- strsplit(x, "_")[[1]]
-  paste(s, sep="", collapse=" ")
-}
-
-#' @export
-#'
-nameToId <- function(x) {
-  s <- strsplit(x, " ")[[1]]
-  paste(s, sep="", collapse="_")
-}
-
 #' Returns a template for the Query Builder filter on the basis of a Data Frame
 #'
 #' @param data Data Frame from which the list of filters will be created.
@@ -24,8 +8,6 @@ nameToId <- function(x) {
 #' #### Iris data example.
 #' # Load data
 #' data(iris)
-#' # Rename columns and get filters
-#' colnames(iris)<-c("sepal_length","sepal_width","petal_length","petal_width","species")
 #' filters<-getFiltersFromTable(iris)
 #' # Set initial rules to NULL
 #' rules<-NULL
@@ -37,7 +19,7 @@ getFiltersFromTable<-function(data) {
   filters<-list()
 
   namesCol<-colnames(data)
-  niceNames<-as.vector(sapply(namesCol,idToName))
+  niceNames<-as.vector(sapply(namesCol,function(x) gsub('[_.]',' ' ,x)))
 
   for (i in 1:ncol(data)) {
 
@@ -93,8 +75,6 @@ getFiltersFromTable<-function(data) {
 #' #### Iris data example.
 #' # Load data
 #' data(iris)
-#' # Rename columns and get filters
-#' colnames(iris)<-c("sepal_length","sepal_width","petal_length","petal_width","species")
 #' filters<-getFiltersFromTable(iris)
 #' # Set initial rules to NULL
 #' rules<-NULL
