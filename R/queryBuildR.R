@@ -36,6 +36,7 @@ getFiltersFromTable<-function(data,column_opts=NULL) {
 
                  )
 
+               if(length(column_opts[[namesCol[i]]][['plugin']])>0){
                     if(column_opts[[namesCol[i]]][['plugin']]=='selectize'){
                       char_list=c(char_list,list(
                        input=ifelse(is.null(column_opts[[namesCol[i]]][['input']]),'select',column_opts[[namesCol[i]]][['input']]),
@@ -49,6 +50,7 @@ getFiltersFromTable<-function(data,column_opts=NULL) {
                                     options= jsonlite::toJSON(data.frame(id=1:length(unique(data[,namesCol[i]])),name=unique(data[,namesCol[i]]),stringsAsFactors = FALSE,row.names = NULL))
                                )))
                     }
+                 }
 
                char_list
 
