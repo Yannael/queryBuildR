@@ -1,13 +1,13 @@
 dependencies:
+  - name: jquery
+    version: 3.2.1
+    src: "htmlwidgets/lib/jQuery"
+    script: jquery.min.js
   - name: bootstrap
     version: 3.3.7
     src: "htmlwidgets/lib/bootstrap"
     stylesheet: css/bootstrap.min.css
     script: js/bootstrap.min.js
-  - name: jquery
-    version: 3.2.1
-    src: "htmlwidgets/lib/jQuery"
-    script: jquery.min.js
   - name: jquerybuilder
     version: 2.4.3
     src: "htmlwidgets/lib/jQuery-QueryBuilder"
@@ -20,5 +20,5 @@ dependencies:
   - name: moment
     version: 2.18.1
     src: "htmlwidgets/lib/moment"
-    script: moment-with-locales.min.js
+    script: moment-with-locales.js
 
