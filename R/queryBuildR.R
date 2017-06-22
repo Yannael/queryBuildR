@@ -29,7 +29,16 @@ getFiltersFromTable<-function(data) {
                    id= namesCol[i],
                    label= niceNames[i],
                    type= 'string',
-                   default_value=data[1,i],
+                   # input='select',
+                   # plugin='selectize',
+                   # plugin_config=list(valueField="id",
+                   #                    labelField="name",
+                   #                    sortField="name",
+                   #                    searchField="name",
+                   #                    create=FALSE,
+                   #                    options=jsonlite::toJSON(data.frame(id=1:length(unique(data[namesCol[i]])),name=unique(data[,namesCol[i]]),stringsAsFactors = FALSE,row.names = NULL))
+                   # ),
+                   placeholder='Enter search term',
                    operators=list('equal','not_equal','contains', 'in', 'not_in','begins_with', 'ends_with','is_null', 'is_not_null')),
              factor={
                values<-setdiff(levels(data[,i]),"")
@@ -39,7 +48,8 @@ getFiltersFromTable<-function(data) {
                  type= 'string',
                  input='select',
                  values=values,
-                 default_value=values[1],
+                 #default_value=values[1],
+                 placeholder='Enter search term',
                  operators=list('equal','not_equal','contains', 'in', 'not_in','is_null', 'is_not_null'))
              },
              integer=list(
@@ -53,10 +63,6 @@ getFiltersFromTable<-function(data) {
                label= niceNames[i],
                type= 'double',
                default_value=data[1,i],
-#                validation=list(
-#                  min= 0,
-#                  step= 0.01
-#                ),
                operators=list('equal','not_equal',  'less', 'less_or_equal', 'greater','greater_or_equal','between','is_null', 'is_not_null'))
              )
     filters<-c(filters,list(filterCol))
