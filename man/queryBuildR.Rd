@@ -4,12 +4,12 @@
 \alias{queryBuildR}
 \title{Create a Query Builder widget}
 \usage{
-queryBuildR(rules, filters, width = NULL, height = NULL)
+queryBuildR(filters, rules = NULL, width = NULL, height = NULL)
 }
 \arguments{
-\item{rules}{List initializing the set of rules for the Query Builder widget.}
-
 \item{filters}{List specifying the variables, conditions and value ranges for building the queries.}
+
+\item{rules}{List initializing the set of rules for the Query Builder widget.}
 }
 \description{
 Create a Query Builder widget
@@ -19,9 +19,14 @@ Create a Query Builder widget
 # Load data
 data(iris)
 filters<-getFiltersFromTable(iris)
-# Set initial rules to NULL
-rules<-NULL
 # Create Query Builder widget
-queryBuildR(rules,filters)
+queryBuildR(filters)
+
+queryBuildR(getFiltersFromTable(iris,
+                                column_opts = list(Species=list(type='select',
+                                                                plugin='selectize',
+                                operators=list('equal','not_equal','contains', 'in', 'not_in')))
+                                )
+           )
 
 }

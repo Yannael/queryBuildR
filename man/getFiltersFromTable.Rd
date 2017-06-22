@@ -4,7 +4,7 @@
 \alias{getFiltersFromTable}
 \title{Returns a template for the Query Builder filter on the basis of a Data Frame}
 \usage{
-getFiltersFromTable(data)
+getFiltersFromTable(data, column_opts = NULL)
 }
 \arguments{
 \item{data}{Data Frame from which the list of filters will be created.}
@@ -16,9 +16,5 @@ Returns a template for the Query Builder filter on the basis of a Data Frame
 #### Iris data example.
 # Load data
 data(iris)
-filters<-getFiltersFromTable(iris)
-# Set initial rules to NULL
-rules<-NULL
-# Create Query Builder widget
-queryBuildR(rules,filters)
+getFiltersFromTable(iris)
 }
