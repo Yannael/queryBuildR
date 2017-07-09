@@ -1,26 +1,39 @@
-# (uncomment to add a dependency)
 dependencies:
-#NB bootstrap.css so url points to fonts directory without '..'
-  - name: bootstrap
-    version: 3.3.5
-    src: "htmlwidgets/lib/bootstrap"
-    stylesheet: bootstrap.min.css
-    script: bootstrap.min.js
+  - name: js-mobile-console
+    version: 0.3.1
+    src: "htmlwidgets/lib/js-mobile-console"
+    script: mobile-console.min.js
+    stylesheet: style/mobile-console.min.css
   - name: jquery
-    version: 2.1.4
+    version: 3.2.1
     src: "htmlwidgets/lib/jQuery"
     script: jquery.min.js
+  - name: bootstrap
+    version: 3.3.7
+    src: "htmlwidgets/lib/bootstrap"
+    stylesheet: css/bootstrap.min.css
+    script: js/bootstrap.min.js
+  - name: bootstrap-select
+    version: 1.12.2
+    src: "htmlwidgets/lib/bootstrap-select"
+    stylesheet: dist/css/bootstrap-select.min.css
+    script: dist/js/bootstrap-select.min.js
+  - name: selectize
+    version: 0.12.4
+    src: "htmlwidgets/lib/selectize"
+    stylesheet: dist/css/selectize.css
+    script: dist/js/standalone/selectize.min.js
   - name: jquerybuilder
-    version: 2.2.0
+    version: 2.4.3
     src: "htmlwidgets/lib/jQuery-QueryBuilder"
-    script: query-builder.standalone.min.js
-    stylesheet: query-builder.default.min.css
+    script: dist/js/query-builder.standalone.min.js
+    stylesheet: dist/css/query-builder.default.min.css
   - name: sqlparser
     version: 1.0.0
     src: "htmlwidgets/lib/sql-parser"
     script: sql-parser.js
   - name: moment
-    version: 2.10.6
+    version: 2.18.1
     src: "htmlwidgets/lib/moment"
-    script: moment-with-locales.min.js
+    script: moment-with-locales.js
 
