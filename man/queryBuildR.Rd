@@ -4,7 +4,8 @@
 \alias{queryBuildR}
 \title{Create a Query Builder widget}
 \usage{
-queryBuildR(filters, rules = NULL, width = NULL, height = NULL)
+queryBuildR(filters, rules = NULL, plugins = NULL, width = NULL,
+  height = NULL)
 }
 \arguments{
 \item{filters}{List specifying the variables, conditions and value ranges for building the queries.}

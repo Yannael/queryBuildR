@@ -122,11 +122,12 @@ getFiltersFromTable<-function(data,column_opts=NULL) {
 #'
 #' @export
 #'
-queryBuildR <- function(filters,rules=NULL,width = NULL, height = NULL) {
+queryBuildR <- function(filters,rules=NULL,plugins=NULL,width = NULL, height = NULL) {
 
   x = list(
     rules = rules,
-    filters=filters
+    filters=filters,
+    plugins=plugins
   )
 
   # create widget

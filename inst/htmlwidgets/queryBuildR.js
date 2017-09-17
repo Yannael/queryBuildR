@@ -35,6 +35,7 @@ HTMLWidgets.widget({
     });
 
     $el.queryBuilder({
+      plugins: x.plugins,
       sortable: true,
       filters:x.filters,
       rules: x.rules,
